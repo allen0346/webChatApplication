@@ -15,3 +15,4 @@ test_done:
 To DO:
 1. clean user list
 2. private message 
+3. deploy to heroku
