@@ -1,0 +1,17 @@
+{
+  "name": "webchat_app",
+  "version": "1.0.0",
+  "description": "test for socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "Initialization"
+  },
+  "author": "han",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "njs": "0.0.2",
+    "socket.io": "^1.3.7"
+  }
+}

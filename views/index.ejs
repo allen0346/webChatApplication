@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  </head>
+
+  <body>
+    <div id="frame">
+      <div id="frameHead"><p>Log In</p></div>
+      <form method="post" action="/chat.ejs">
+        <ul style="list-style-type:none">
+          <li><label id="inputTitle">Username:</label></li>
+          <li id="input"><input type="text" name="username"></li>
+        </ul>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>

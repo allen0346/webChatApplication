@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" type="text/css" href="static/css/chatStylesheet.css">
+    <link rel="stylesheet" type="text/css" href="static/css/foundation.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.js"></script> -->
+  </head>
+
+  <body>
+    <div id="contentWraper">
+      <div id="chatBox">
+        <div class="rightDiv">
+          <div id="topDiv">
+              <div id="menu"><img src="static/images/menu.png"></div>
+          </div>
+         <div id="chatContent">
+             <ul id="messages"></ul>
+         </div>
+          <div id="bottomDiv">
+            <form action="">
+              <input id="m" autocomplete="off" /><button>Send</button>
+            </form>
+          </div>
+        </div>
+
+
+        <div class="sideNav">
+          <!-- <nav> -->
+            <div id="user">
+              <span id="username"><%=username%></span>
+            </div>
+            <ul id="userList">
+              <!-- <li>Name1</li>
+              <li>Name2</li>
+              <li>Name3</li>
+              <li>Name4</li>
+              <li>Name5</li> -->
+            </ul>
+          <!-- </nav> -->
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="./socket.io/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <!-- <script src="static/js/foundation.min.js"></script> -->
+  <script src="static/js/script.js"></script>
+  <script src="static/js/controller.js"></script>
+</html>
