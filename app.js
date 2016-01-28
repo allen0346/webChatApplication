@@ -73,6 +73,8 @@ io.on('connection', function(socket){
 
 console.log(process.env.PORT);
 
+
+// process.env.PORT is for the port that create by Heroku
 http.listen(process.env.PORT ||3000, function(){
   console.log('listening on *:3000');
 });
