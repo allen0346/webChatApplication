@@ -5,9 +5,9 @@ function log (message) {
 
 // inform current client that a new user join to the chat room.
 socket.on('user joined', function (data) {
-  $('#userList').children().remove();
+  $('#userUlist').children().remove();
   for(i of data.username){
-        $('#userList').append("<li>"+'<span>' + i +'</span>'+"</li>");
+        $('#userUlist').append("<li>"+'<span>' + i +'</span>'+"</li>");
   }
   //  log(data.username + ' joined');
 });
@@ -26,19 +26,31 @@ socket.on('receive message', function (data) {
 });
 
 
+//sendPrivateMessage
+$('#userUlist').on('click', 'li', function () {
+  socket.emit('sendPM',{ to:$(this).text(), from:$("#username").text(), pm: 'test!!!!'  });
+  // console.log($(this).text());
+});
+
+socket.on('receivePM',function(data){
+  console.log(data);
+  console.log("test gulp!!!")
+});
 
 
-// $(window).load(function() {
-  (function($){
-    $("#contentWraper").css("min-height", $(window).height());
-  })(jQuery);
-// });
+
+
+(function($){
+  $("#contentWraper").css("min-height", $(window).height());
+})(jQuery);
+
 
 
 
 (function(){
-  $('#menu').click(function(){
+  $('.menu').click(function(){
     $('.sideNav').toggleClass('sideToggle');
     $('.rightDiv').toggleClass('rightToggle');
+    $('.menu').toggleClass('menuToggle');
   });
 })();

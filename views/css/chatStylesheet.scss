@@ -13,12 +13,15 @@
 //   right:0;
 // }
 
+
 li{
   list-style-type: none;
 }
 
 body{
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+  padding:0;
+  margin:0;
   // display:block;
 }
 
@@ -130,18 +133,20 @@ form button {
 
 
 
-#menu{
+.menu{
   position:absolute;
-  // margin-bottom:20px;
   left:3%;
-  // bottom:3px;
+  bottom:3px;
   top:3px;
-  // top:100%;
-  // bottom:100%;
-  // background-color:blue;
-  height:50px;
+  height:40px;
   width:50px;
   cursor:pointer;
+  transform:rotate(0deg);
+  transition: transform 0.4s ease;
+}
+
+.menuToggle{
+  transform:rotate(-810deg);
 }
 
 
@@ -159,8 +164,44 @@ form button {
 #user{
   height:8%;
   background-color:#415E9B;
-  border-bottom:1px solid rgba(0,0,0,0.1);
+  // border-bottom:1px solid rgba(0,0,0,0.1);
+  width:100%;
   color:white;
   font-size:30px;
   text-align:center;
+  position:absolute;
+  top:0;
+}
+
+#ulParent{
+  height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#userList{
+  // background-color: red;
+  position:absolute;
+  bottom:0;
+  width:110%;
+  height:92%;
+  overflow:auto;
+  padding-right: 15px;
+
+  ul{
+  padding:0;
+  margin:0;
+}
+  li{
+    cursor:pointer;
+    height:50px;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    text-align: left;
+    vertical-align: middle;
+    line-height: 50px;
+  }
+  li:hover{
+    background-color:#e2e4e9;
+  }
 }

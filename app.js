@@ -14,6 +14,7 @@ app.use('/static', express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var clients = [];
+// for userList that show on the interface
 var unList = [];
 var un;
 
@@ -29,6 +30,12 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
+var remove = function (name){
+  var index = unList.indexOf(name);
+  unList.splice(index, 1);
+  delete clients[name];
+};
+
 
 /*
 .broadcast.emit: echo globally (all clients) except the current socket.
@@ -36,20 +43,18 @@ io.emit will invoke event of all sockets;
 */
 
 io.on('connection', function(socket){
+  socket.username = un;
+  clients[socket.username] = socket;
   io.emit('user joined',{
     username: unList
   });
-
-  socket.username = un;
   socket.on('disconnect', function(){
     console.log(socket.username + ' disconnected');
+    remove(socket.username);
+    io.emit('user joined',{
+      username: unList
+    });
   });
-
-  clients[socket.id] = un;
-  // socket.broadcast.emit('user joined', {
-  //   username: socket.username,
-  // });
-
   socket.on('chat message', function(msg){
     // console.log(socket.username);
     socket.broadcast.emit('receive message', {
@@ -58,9 +63,16 @@ io.on('connection', function(socket){
     });
   });
 
+  socket.on('sendPM',function(data){
+      // console.log(data);
+      // socket.emit (send message to specific emit)
+      clients[data.to].emit('receivePM',data);
+  });
+
 });
 
+console.log(process.env.PORT);
 
-http.listen(3000, function(){
+http.listen(process.env.PORT ||3000, function(){
   console.log('listening on *:3000');
 });

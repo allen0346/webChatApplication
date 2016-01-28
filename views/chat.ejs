@@ -1,9 +1,10 @@
 <!doctype html>
-<html ng-app="myApp">
+<!-- <html ng-app="myApp"> -->
+<html>
   <head>
     <title>Socket.IO chat</title>
     <link rel="stylesheet" type="text/css" href="static/css/chatStylesheet.css">
-    <link rel="stylesheet" type="text/css" href="static/css/foundation.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/foundation.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.js"></script> -->
   </head>
@@ -13,7 +14,7 @@
       <div id="chatBox">
         <div class="rightDiv">
           <div id="topDiv">
-              <div id="menu"><img src="static/images/menu.png"></div>
+              <img class="menu" src="static/images/menu.png">
           </div>
          <div id="chatContent">
              <ul id="messages"></ul>
@@ -31,13 +32,11 @@
             <div id="user">
               <span id="username"><%=username%></span>
             </div>
-            <ul id="userList">
-              <!-- <li>Name1</li>
-              <li>Name2</li>
-              <li>Name3</li>
-              <li>Name4</li>
-              <li>Name5</li> -->
-            </ul>
+            <div id="ulParent">
+              <div id="userList">
+                <ul id="userUlist"></ul>
+              </div>
+            </div>
           <!-- </nav> -->
         </div>
       </div>
